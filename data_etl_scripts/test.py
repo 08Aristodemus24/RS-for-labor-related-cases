@@ -50,7 +50,7 @@ def collect_content(driver: webdriver.Chrome, links: list[str], header_selector:
             # across multiple pages since the structure may change and some
             # elements may not be grabbed
             text_content = driver.find_element(By.CSS_SELECTOR, text_content_selector)
-            print("Header: {}\nText content{}\n\n".format(header, text_content.text))
+            print("Header: {}\nText content: {}\n\n".format(header, text_content.text))
             
             # store accepted headers and text content
             page_headers.append(header)
@@ -77,3 +77,38 @@ def collect_content(driver: webdriver.Chrome, links: list[str], header_selector:
 
     # place text in data frame if no error is raised
     return pd.DataFrame({'page_link': accepted, 'page_header': page_headers, 'page_text_content': page_text_content})
+
+
+# collects and returns link, headers, and text content of page individually
+def collect_content_individually(driver: webdriver.Chrome, link: str, header_selector: str = None, text_content_selector: str = None) -> list or None:
+    try:
+        driver.get(link)
+        wait_val = WebDriverWait(driver, timeout=10).until(lambda driver: driver.execute_script('return document.readyState === "complete"'))
+        print("Wait value: {}\nPage title: {}\n".format(wait_val, driver.title))
+        
+        # grab html elements that contain important header content
+        # exhaust the list returned by appending
+        header = " ".join([element.text for element in driver.find_elements(By.CSS_SELECTOR, header_selector)])
+
+        # grab a single html element only since it cannto be generalized 
+        # across multiple pages since the structure may change and some
+        # elements may not be grabbed
+        text_content = driver.find_element(By.CSS_SELECTOR, text_content_selector)
+        print("Header: {}\nText content: {}\n\n".format(header, text_content.text))
+        
+        return [header, text_content]
+
+        
+    except TimeoutError as error:
+        print("Error {} has occured".format(error))
+        driver.quit() # or .close()
+        return None
+
+    # catch both NoSuchElementException and StaleElementReferenceException errors
+    except (NoSuchElementException, StaleElementReferenceException) as error:
+        print("Error {} has occured".format(error))
+        return None
+
+    finally:
+        print("will go to next link")
+    
