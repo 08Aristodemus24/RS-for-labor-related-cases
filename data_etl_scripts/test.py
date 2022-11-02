@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException, InvalidSelectorException
 from selenium.webdriver.common.by import By
+from bs4 import BeautifulSoup
 import pandas as pd
 from typing import Union
 
@@ -81,21 +82,32 @@ def collect_content(driver: webdriver.Chrome, links: list[str], header_selector:
 
 
 # collects and returns link, headers, and text content of page individually
-def collect_content_individually(driver: webdriver.Chrome, link: str, header_selector: str = 'N/A', text_content_selector: str = 'N/A') -> Union[list, None]:
+def collect_content_individually(driver: webdriver.Chrome, link: str, locator: str = 'CSS', header_selector: str = 'N/A', text_content_selector: str = 'N/A') -> Union[list, None]:
+    header = ""
+    text_content = ""
+
+    locators = {
+        'CSS': By.CSS_SELECTOR,
+        'XPATH': By.XPATH
+    } 
+
     try:
         driver.get(link)
         wait_val = WebDriverWait(driver, timeout=10).until(lambda driver: driver.execute_script('return document.readyState === "complete"'))
         print("Wait value: {}\nPage title: {}\n".format(wait_val, driver.title))
         
-        # grab html elements that contain important header content
-        # exhaust the list returned by appending
-        header = " ".join([element.text for element in driver.find_elements(By.CSS_SELECTOR, header_selector)])
+        
+        if header_selector != 'N/A':
+            # grab html elements that contain important header content
+            # exhaust the list returned by appending
+            header = " ".join([element.text for element in driver.find_elements(locators[locators[locator.upper()]], header_selector)])
 
-        # grab a single html element only since it cannto be generalized 
-        # across multiple pages since the structure may change and some
-        # elements may not be grabbed
-        text_content = driver.find_element(By.CSS_SELECTOR, text_content_selector)
-        print("Header: {}\nText content: {}\n\n".format(header, text_content.text))
+        if text_content_selector != 'N/A':
+            # grab a single html element only since it cannto be generalized 
+            # across multiple pages since the structure may change and some
+            # elements may not be grabbed
+            text_content = driver.find_element(locators[locator.upper()], text_content_selector)
+            print("Header: {}\nText content: {}\n\n".format(header, text_content.text))
         
         return [header, text_content]
 
@@ -113,3 +125,6 @@ def collect_content_individually(driver: webdriver.Chrome, link: str, header_sel
     finally:
         print("will go to next link")
     
+
+def collect_content_individually_bs4(content: str) -> str:
+    return BeautifulSoup(content).get_text()
