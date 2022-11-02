@@ -1,8 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException, InvalidSelectorException
 from selenium.webdriver.common.by import By
 import pandas as pd
+from typing import Union
 
 
 # collects and returns links and link texts of page
@@ -80,7 +81,7 @@ def collect_content(driver: webdriver.Chrome, links: list[str], header_selector:
 
 
 # collects and returns link, headers, and text content of page individually
-def collect_content_individually(driver: webdriver.Chrome, link: str, header_selector: str = None, text_content_selector: str = None) -> list or None:
+def collect_content_individually(driver: webdriver.Chrome, link: str, header_selector: str = 'N/A', text_content_selector: str = 'N/A') -> Union[list, None]:
     try:
         driver.get(link)
         wait_val = WebDriverWait(driver, timeout=10).until(lambda driver: driver.execute_script('return document.readyState === "complete"'))
@@ -105,7 +106,7 @@ def collect_content_individually(driver: webdriver.Chrome, link: str, header_sel
         return None
 
     # catch both NoSuchElementException and StaleElementReferenceException errors
-    except (NoSuchElementException, StaleElementReferenceException) as error:
+    except (NoSuchElementException, StaleElementReferenceException, InvalidSelectorException) as error:
         print("Error {} has occured".format(error))
         return None
 
