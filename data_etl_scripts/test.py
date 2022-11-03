@@ -5,12 +5,14 @@ from selenium.webdriver.common.by import By
 
 from bs4 import BeautifulSoup
 import requests
+from urllib.error import URLError, HTTPError
+
 import pandas as pd
-
-
 
 from typing import Union
 
+
+# USING SELENIUM
 
 # collects and returns links and link texts of page
 def collect_link_details(driver: webdriver.Chrome, link: str, link_selector: str) -> pd.DataFrame:
@@ -131,27 +133,90 @@ def collect_content_individually(driver: webdriver.Chrome, link: str, locator: s
         print("will go to next link")
     
 
-# using beautiful soup instead of selenium
-# collect link details 
-def collect_link_details_bs(link: str, selector: str) -> pd.DataFrame:
-    # open page
-    dom_text = requests.get(link).text
-    dom = BeautifulSoup(dom_text)
+# USING BEAUTIFUL SOUP
 
+# collects link details 
+def collect_link_details_bs(link: str, selector: str) -> pd.DataFrame:
     # store all link text and hrefs for dataframe
     link_texts = []
     link_hrefs = []
 
-    # using css selector, like class, id, attribute etc, grab the
-    # subtree in the dom that contains all the links then extract all a elements
-    links_container = dom.select_one(selector)
-    for a_element in links_container.find_all('a'):
-        # get text and href of each a element
-        link_hrefs.append(a_element['href'])
-        link_texts.append(a_element.get_text())
+    try:
+        # open page
+        dom_text = requests.get(link).text
+        dom = BeautifulSoup(dom_text)        
+
+        # using css selector, like class, id, attribute etc, grab the
+        # subtree in the dom that contains all the links then extract all a elements
+        links_container = dom.select_one(selector)
+        for a_element in links_container.find_all('a'):
+            # get text and href of each a element
+            link_hrefs.append(a_element['href'])
+            link_texts.append(a_element.get_text())
+
+    # raise a URLError or HTTPError if url pattern is invalid
+    # or if url does not exist in the server respectively
+    except (URLError, HTTPError) as error:
+        print("Error {} has occured".format(error))
 
     return pd.DataFrame({'link_text': link_texts, 'href': link_hrefs})
-    
+
+
+# collects and returns link, headers, and text content of page
+def collect_content_bs(links: list[str], header_selector: str, text_content_selector: str) -> pd.DataFrame:
+    page_headers = []
+    page_text_content = []
+    accepted = []
+    rejects = []
+    for link in links:
+        try:
+            # open page, and raise a URLError exception if url entered is
+            # not valid, and similarly an HTTPError if the url is in fact
+            # valid but the url does not exist in the server
+            dom_text = requests.get(link).text
+            dom = BeautifulSoup(dom_text, 'lxml')
+            
+            # grab html elements that contain important header content
+            # exhaust the list returned by appending
+            header = " ".join([element.get_text() for element in dom.select(header_selector)]) if dom.select(header_selector) != [] else None
+            if header is None:
+                raise ValueError('dom.select() returned an empty list for link {} due to header selector'.format(link))
+
+            # grab a single html element only since it cannto be generalized 
+            # across multiple pages since the structure may change and some
+            # elements may not be grabbed
+            text_content = dom.select_one(text_content_selector)
+            if text_content is None:
+                raise ValueError('dom.select_one returned none for link due to text content selector'.format(link))
+
+            # display header and text content
+            print("Header: {}\nText content: {}\n\n".format(header, text_content.get_text()))
+            
+            # store accepted headers and text content
+            page_headers.append(header)
+            page_text_content.append(text_content.get_text())
+
+            # append if no error is raised
+            accepted.append(link)
+            
+        # raise a URLError or HTTPError if url pattern is invalid
+        # or if url does not exist in the server respectively
+        except (URLError, HTTPError) as error:
+            print("Error: {} has occured".format(error))
+
+        except ValueError as error:
+            print("Error: {} has occured".format(error))
+            rejects.append(link)
+
+        finally:
+            print("will go to next link")
+
+    print("number of total links: {}\nnumber of accepted links: {}\nnumber of reject links: {}\n".format(len(links), len(accepted), len(rejects)))
+    print("accepted links: ", accepted, end='\n')
+    print("rejected links: ", rejects, end='\n')
+
+    # place text in data frame if no error is raised
+    return pd.DataFrame({'page_link': accepted, 'page_header': page_headers, 'page_text_content': page_text_content})
 
 
 # collect content individually
