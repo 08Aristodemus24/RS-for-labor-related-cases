@@ -2,8 +2,13 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException, InvalidSelectorException
 from selenium.webdriver.common.by import By
+
 from bs4 import BeautifulSoup
+import requests
 import pandas as pd
+
+
+
 from typing import Union
 
 
@@ -82,7 +87,7 @@ def collect_content(driver: webdriver.Chrome, links: list[str], header_selector:
 
 
 # collects and returns link, headers, and text content of page individually
-def collect_content_individually(driver: webdriver.Chrome, link: str, locator: str = 'CSS', header_selector: str = 'N/A', text_content_selector: str = 'N/A') -> Union[list, None]:
+def collect_content_individually(driver: webdriver.Chrome, link: str, locator: str='CSS', header_selector: str='N/A', text_content_selector: str='N/A') -> Union[list, None]:
     header = ""
     text_content = ""
 
@@ -126,5 +131,29 @@ def collect_content_individually(driver: webdriver.Chrome, link: str, locator: s
         print("will go to next link")
     
 
-def collect_content_individually_bs4(content: str) -> str:
+# using beautiful soup instead of selenium
+# collect link details 
+def collect_link_details_bs(link: str, selector: str) -> pd.DataFrame:
+    # open page
+    dom_text = requests.get(link).text
+    dom = BeautifulSoup(dom_text)
+
+    # store all link text and hrefs for dataframe
+    link_texts = []
+    link_hrefs = []
+
+    # using css selector, like class, id, attribute etc, grab the
+    # subtree in the dom that contains all the links then extract all a elements
+    links_container = dom.select_one(selector)
+    for a_element in links_container.find_all('a'):
+        # get text and href of each a element
+        link_hrefs.append(a_element['href'])
+        link_texts.append(a_element.get_text())
+
+    return pd.DataFrame({'link_text': link_texts, 'href': link_hrefs})
+    
+
+
+# collect content individually
+def collect_content_individually_bs(content: str) -> str:
     return BeautifulSoup(content).get_text()
