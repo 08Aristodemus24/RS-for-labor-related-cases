@@ -38,7 +38,7 @@ def collect_link_details(driver: webdriver.Chrome, link: str, link_selector: str
 
 
 # collects and returns link, headers, and text content of page
-def collect_content(driver: webdriver.Chrome, links: list[str], header_selector: str, text_content_selector: str) -> pd.DataFrame:
+def collect_content(driver: webdriver.Chrome, links: list[str], header_selector: str, text_content_selector: str, threshold: int=128) -> pd.DataFrame:
     page_headers = []
     page_text_content = []
     accepted = []
@@ -54,12 +54,21 @@ def collect_content(driver: webdriver.Chrome, links: list[str], header_selector:
             # grab html elements that contain important header content
             # exhaust the list returned by appending
             header = " ".join([element.text for element in driver.find_elements(By.CSS_SELECTOR, header_selector)])
+            
+            # display header
+            print("\033[92m {}\033[00m".format("Header: {}\n".format(header)))
 
             # grab a single html element only since it cannto be generalized 
             # across multiple pages since the structure may change and some
             # elements may not be grabbed
             text_content = driver.find_element(By.CSS_SELECTOR, text_content_selector)
-            print("Header: {}\nText content: {}\n\n".format(header, text_content.text))
+
+            # display text content
+            print("\033[96m {}\033[00m".format("Text content: {}\nLength: {}\n\n".format(text_content.text, len(text_content.text))))
+
+            # raise error if text dom.select_one() returns None
+            if text_content is None or len(text_content.text) <= threshold:
+                raise ValueError('dom.select_one returned none for link due to text content selector or length of text content is below threshold'.format(link))
             
             # store accepted headers and text content
             page_headers.append(header)
@@ -75,6 +84,12 @@ def collect_content(driver: webdriver.Chrome, links: list[str], header_selector:
         # catch both NoSuchElementException and StaleElementReferenceException errors
         except (NoSuchElementException, StaleElementReferenceException) as error:
             print("Error {} has occured".format(error))
+            rejects.append(link)
+
+        # catch threshold error if length of content is below 
+        # certain threshold value
+        except ValueError as error:
+            print("Error: {} has occured".format(error))
             rejects.append(link)
 
         finally:
