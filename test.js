@@ -1,0 +1,1 @@
+return document.querySelector(`input[type="submit"]#MainContent_btnOCRConvert`).getAttribute("disabled") !== null
