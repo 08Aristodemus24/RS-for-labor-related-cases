@@ -40,6 +40,12 @@ if __name__ == "__main__":
         driver.maximize_window()
         wait_val = WebDriverWait(driver, timeout=10).until(lambda driver: driver.execute_script('return document.readyState === "complete"'))
         
+        # extract select element
+        output_select = Select(driver.find_element(By.XPATH, '/html/body/form/div[6]/div/div/div/div[1]/div[4]/div[2]/div/div/div[1]/table/tbody/tr[2]/td/select[2]'))
+        
+        # select text file for option in select element
+        output_select.select_by_value('Text Plain (txt)')
+        
         # extract input element
         upload_button = driver.find_element(By.XPATH, '/html/body/form/div[6]/div/div/div/div[1]/div[4]/div[1]/span/input')
         
@@ -51,11 +57,7 @@ if __name__ == "__main__":
         wait_val = WebDriverWait(driver, timeout=3).until(lambda driver: driver.execute_script('return document.querySelector(`input[type="submit"]#MainContent_btnOCRConvert`).getAttribute("disabled") !== null'))
         
         if wait_val == True:
-            # extract select element
-            output_select = Select(driver.find_element(By.XPATH, '/html/body/form/div[6]/div/div/div/div[1]/div[4]/div[2]/div/div/div[1]/table/tbody/tr[2]/td/select[2]'))
             
-            # select text file for option in select element
-            output_select.select_by_value('Text Plain (txt)')
             
             # extract button element
             convert_button = driver.find_element(By.XPATH, '/html/body/form/div[6]/div/div/div/div[1]/div[4]/div[2]/div/div/div[2]/input')
@@ -68,11 +70,11 @@ if __name__ == "__main__":
             
             # once cursor is moved on the convert to text button click convert
             action.move_by_offset(1057, 402)
-            action.context_click()
             action.click()
             action.perform()
             
-            # extract textarea element containing the resulting text
+            # wait until textarea element is available then extract 
+            # textarea element containing the resulting text
             #textarea = driver.find_element(By.XPATH, '/html/body/form/div[6]/div/div/div/div[1]/div[8]/div/div[2]/textarea')
             
             # extract text
