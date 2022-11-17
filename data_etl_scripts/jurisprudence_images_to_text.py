@@ -54,7 +54,7 @@ if __name__ == "__main__":
         
         # wait until #MainContent_btnOCRConvert is enabled or until this script is
         # finished since the element has event onclick with it set to this script 
-        wait_val = WebDriverWait(driver, timeout=3).until(lambda driver: driver.execute_script('return document.querySelector(`input[type="submit"]#MainContent_btnOCRConvert`).getAttribute("disabled") !== null'))
+        wait_val = WebDriverWait(driver, timeout=10).until(lambda driver: driver.execute_script('return document.querySelector(`input[type="submit"]#MainContent_btnOCRConvert`).getAttribute("disabled") !== null'))
         
         if wait_val == True:
             
