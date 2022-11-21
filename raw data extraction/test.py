@@ -236,7 +236,7 @@ def collect_content_bs(links: list[str], header_selector: str, text_content_sele
 
 # collect content individually
 def collect_content_individually_bs(content: str) -> str:
-    return BeautifulSoup(content).get_text()
+    return BeautifulSoup(content, 'lxml').get_text()
 
 
 def get_page_text_content_length(page_details: pd.DataFrame) -> list[tuple]:
