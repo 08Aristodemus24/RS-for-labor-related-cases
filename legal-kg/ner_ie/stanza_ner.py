@@ -82,6 +82,20 @@ def stanza_nlp(text):
 #================================================================================================
 #================================================================================================
 
+def generate_entities(text):
+  r = stanza_nlp(text)
+
+  # returns a DataFrame with structure:
+  #   PIPELINE/MODEL  TOKEN  LABEL
+  # 0 'STANZA-ONTONOTES'        val    val
+  # .
+  # .       ...        ...    ...
+  # .
+  # n - 1   'STANZA-ONTONOTES'        val    val
+  # 
+  # - Michael
+  return r
+
 def create_triples_format(tid,df):
   f = pd.DataFrame(columns = ['tid','label','token'])
   for i in range(len(df)):
@@ -104,19 +118,7 @@ def create_triples_format(tid,df):
   # n - 1  <some text id>    <val>    <val>
   return f
 
-def generate_entities(text):
-  r = stanza_nlp(text)
 
-  # returns a DataFrame with structure:
-  #   PIPELINE/MODEL  TOKEN  LABEL
-  # 0 'STANZA-ONTONOTES'        val    val
-  # .
-  # .       ...        ...    ...
-  # .
-  # n - 1   'STANZA-ONTONOTES'        val    val
-  # 
-  # - Michael
-  return r
 
 # go up in directory and access all the files of the directory data/LEGAL_TEXT which I checked may be either the jurisprudence or the corpus juris (body of law) - Michael
 files = os.listdir("../data/LEGAL_TEXT/")
