@@ -1,0 +1,54 @@
+.comparisonWrapper {
+  margin-top: 0;
+}
+
+.tableContainer {
+  height: 68vh;
+  @media only screen and (min-height: 950px) {
+    height: 74vh;
+  }
+
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+table {
+  color: white;
+  table-layout: fixed;
+  width: 100%;
+}
+
+th, td {
+  padding-top: 25px;
+  padding-right: 10px;
+  text-align: left;
+  vertical-align: top;
+  font-weight: normal;
+
+  div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+table thead tr {
+  font-size: 20px;
+  padding-top: 5px;
+  padding-right: 10px;
+}
+
+thead tr th:first-child,
+tbody tr td:first-child {
+  width: 5em;
+  min-width: 5em;
+  max-width: 5em;
+  word-break: break-all;
+
+  div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

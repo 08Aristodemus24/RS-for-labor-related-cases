@@ -1,0 +1,16 @@
+/legal-kg/data/CITATION/
+/legal-kg/data/dictionaries/
+/legal-kg/data/LEGAL_TEXT/
+/legal-kg/data/old/
+/legal-kg/data/SIMILARITY/
+
+/legal-kg/demo/
+
+/legal-kg/lda_tfidf/MERGED_TFIDF/
+/legal-kg/lda_tfidf/TFIDF_SCORES/
+/legal-kg/lda_tfidf/FOR_TF_IDF.csv
+/legal-kg/lda_tfidf/TM_TOKENS.csv
+
+/legal-kg/link-prediction/
+
+/legal-kg/ner_ie/text_from_html_1152.csv

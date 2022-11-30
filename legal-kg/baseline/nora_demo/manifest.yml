@@ -1,0 +1,9 @@
+applications:
+- path: .
+  memory: 4096M
+  instances: 1
+  domain: mybluemix.net
+  name: node-similarity-demo
+  host: node-similarity-demo
+  disk_quota: 1024M
+  buildpack: python_buildpack

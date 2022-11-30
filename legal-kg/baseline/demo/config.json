@@ -1,0 +1,271 @@
+{
+  "args": {
+    "gpu": true,
+    "anchor_num": 64,
+    "layer_num": 2,
+    "cuda": "0",
+    "task": "similarity",
+    "dataset": "clean_more_than_subject_person_subjectdup",
+    "dataset_duplicates": "clean_more_than_subject_person_subjectdup.map",
+    "cache": true,
+    "permute": true,
+    "approximate": -1,
+    "normalize_adj": true,
+    "remove_link_ratio": 0.2,
+    "batch_size": 8
+  },
+  "inference": true,
+  "feature_categories": [
+    {
+      "name": "top25",
+      "features": [
+        "birthYear",
+        "birthDate",
+        "birthPlace",
+        "deathYear",
+        "deathDate",
+        "activeYearsStartYear",
+        "deathPlace",
+        "activeYearsEndYear",
+        "almaMater",
+        "deathCause",
+        "restingPlace",
+        "education",
+        "residence",
+        "religion",
+        "nationality",
+        "stateOfOrigin",
+        "knownFor",
+        "party",
+        "ethnicity",
+        "award",
+        "networth",
+        "hometown",
+        "employer",
+        "board",
+        "citizenship"
+      ],
+      "models": [
+        {
+          "type": "PGNN_plus",
+          "display_name": "PGNN+",
+          "model_name": "clean_more_than_subject_person_subjectdup_PGNN_plus_4001_similarity_2layer1571089000.1546144_task61.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "PGNN",
+          "display_name": "PGNN",
+          "model_name": "clean_more_than_subject_person_subjectdup_PGNN_4001_similarity_2layer1571089058.3082974_task62.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "SAGE",
+          "display_name": "GraphSAGE",
+          "model_name": "clean_more_than_subject_person_subjectdup_SAGE_4001_similarity_2layer1571089103.5129428_task63.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "Baseline",
+          "display_name": "DeepMatcher",
+          "model_name": "clean_more_than_subject_person_subjectdup_task64.pt",
+          "hidden_dim": 16,
+          "output_dim": 8
+        },
+        {
+          "type": "JC",
+          "display_name": "Jaccard",
+          "model_name": "JC"
+        }
+      ]
+    },
+    {
+      "name": "top15",
+      "features": [
+        "birthYear",
+        "birthDate",
+        "birthPlace",
+        "deathYear",
+        "deathDate",
+        "activeYearsStartYear",
+        "deathPlace",
+        "activeYearsEndYear",
+        "almaMater",
+        "deathCause",
+        "restingPlace",
+        "education",
+        "residence",
+        "religion",
+        "nationality"
+      ],
+      "models": [
+        {
+          "type": "PGNN_plus",
+          "display_name": "PGNN+",
+          "model_name": "clean_more_than_subject_person_subjectdup_PGNN_plus_4001_similarity_2layer1570749608.905518_task48.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "PGNN",
+          "display_name": "PGNN",
+          "model_name": "clean_more_than_subject_person_subjectdup_PGNN_4001_similarity_2layer1570816368.1513073_task50.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "SAGE",
+          "display_name": "GraphSAGE",
+          "model_name": "clean_more_than_subject_person_subjectdup_SAGE_4001_similarity_2layer1570816585.336898_task51.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "Baseline",
+          "display_name": "DeepMatcher",
+          "model_name": "clean_more_than_subject_person_subjectdup_task52.pt",
+          "hidden_dim": 16,
+          "output_dim": 8
+        },
+        {
+          "type": "JC",
+          "display_name": "Jaccard",
+          "model_name": "JC"
+        }
+      ]
+    },
+    {
+      "name": "top10",
+      "features": [
+        "birthYear",
+        "birthDate",
+        "birthPlace",
+        "deathYear",
+        "deathDate",
+        "activeYearsStartYear",
+        "deathPlace",
+        "activeYearsEndYear",
+        "almaMater",
+        "deathCause"
+      ],
+      "models": [
+        {
+          "type": "PGNN_plus",
+          "display_name": "PGNN+",
+          "model_name": "clean_more_than_subject_person_subjectdup_PGNN_plus_4001_similarity_2layer1570816162.3594193_task53.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "PGNN",
+          "display_name": "PGNN",
+          "model_name": "clean_more_than_subject_person_subjectdup_PGNN_4001_similarity_2layer1570816420.773057_task54.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "SAGE",
+          "display_name": "GraphSAGE",
+          "model_name": "clean_more_than_subject_person_subjectdup_SAGE_4001_similarity_2layer1570816623.853584_task55.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "Baseline",
+          "display_name": "DeepMatcher",
+          "model_name": "clean_more_than_subject_person_subjectdup_task56.pt",
+          "hidden_dim": 16,
+          "output_dim": 8
+        },
+        {
+          "type": "JC",
+          "display_name": "Jaccard",
+          "model_name": "JC"
+        }
+      ]
+    },
+    {
+      "name": "top5",
+      "features": [
+        "birthYear",
+        "birthDate",
+        "birthPlace",
+        "deathYear",
+        "deathDate"
+      ],
+      "models": [
+        {
+          "type": "PGNN_plus",
+          "display_name": "PGNN+",
+          "model_name": "clean_more_than_subject_person_subjectdup_PGNN_plus_4001_similarity_2layer1570819835.8959723_task60.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "PGNN",
+          "display_name": "PGNN",
+          "model_name": "clean_more_than_subject_person_subjectdup_PGNN_4001_similarity_2layer1570816455.6397233_task57.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "SAGE",
+          "display_name": "GraphSAGE",
+          "model_name": "clean_more_than_subject_person_subjectdup_SAGE_4001_similarity_2layer1570816646.9827223_task58.pt",
+          "feature_dim": 433,
+          "hidden_dim": 121,
+          "output_dim": 121,
+          "feature_pre": true,
+          "dropout": true
+        },
+        {
+          "type": "Baseline",
+          "display_name": "DeepMatcher",
+          "model_name": "clean_more_than_subject_person_subjectdup_task59.pt",
+          "hidden_dim": 16,
+          "output_dim": 8
+        },
+        {
+          "type": "JC",
+          "display_name": "Jaccard",
+          "model_name": "JC"
+        }
+      ]
+    }
+  ]
+}

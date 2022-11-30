@@ -1,0 +1,9 @@
+---
+applications:
+ - name: anu-ontology
+   random-route: false
+   path: lib/webvowl_1.1.7.war
+   memory: 2048M
+   instances: 1
+   buildpack: java_buildpack
+   timeout: 599

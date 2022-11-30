@@ -1,0 +1,238 @@
+./CITATION/DDAPI
+
+
+
+
+
+./CITATION/LEGAL
+
+
+
+
+
+./CITATION/MAPPING_CSV
+
+
+
+
+
+./CITATION/STANZA/TRIPLES
+each .csv file is a DataFrame with structure:
+tid,label,token
+7496,ORG,Supreme Court of India
+7496,GPE,Orissa
+7496,PERSON,Debendra Nath Padhi
+.
+.
+.
+7496,LAW,Criminal Appeal No.46
+7496,DATE,2004
+7496,DATE,"about 2 years ago"
+
+
+
+
+
+./CITATION/STANZA/results.csv and STANZA/results2.csv
+DataFrame has 19 columns with structure:
+
+tid,PERSON,NORP,ORG,FAC,GPE,LOC,PRODUCT,EVENT,WORK_OF_ART,LAW,LANGUAGE,DATE,TIME,PERCENT,MONEY,QUANTITY,ORDINAL,CARDINAL
+15431278,Shri Kishore Phadke,,Tribunal,Barave Road,Nagpur,,,F Y 2012 13,Ld A R ,u s 234E of the Act,,2014 15,01 06 2015,,,,,01 06 2015
+447378,J Jayalalitha,,Government,Block No 6,Adayar,Exs,A 1,,the First Information Report,Section 169 IPC,,21 days,,13 1 c,7 32 lakhs,3 lakhs,first,1
+492579,,Indian,Government,,India,,,,,the Finance Act,,the 1st day of April 1976,,,,,first,1
+68497168,N Kumar J ,,the Assessing Authority,,Bangalore,,,,,Section 92CA of the Act,,year 2002 03,,,,,,2
+.
+.
+.
+102547904,Shamim Yahya,Indian,CIT,,India,,Baan Global B V,,Para 2,Act,,2009 10,,15 ,1,,first,4
+1005493,,Indian,Registrar,,India,the Central,,,Part A,Act,English,1940,,,five hundred rupees,,first,1
+
+and the consecutive commas with no data in between is an indication that there was no value for this specific label
+this is also the resulting .csv file from the pre_process_triples.py which created a DataFrame of the same columns
+as this .csv file, but originally however was supposed to be saved in the PRE_PROCESSED_TRIPLES/ directory but may
+have been moved here instead
+
+
+
+
+
+./CITATION/STANZA/stanza_citation_triples.txt
+15431278	GPE	nagpur
+15431278	DATE	31 january 2020
+15431278	GPE	nagpur
+.
+.
+.
+1005493	LAW	act
+1005493	LAW	act
+1005493	LAW	act
+
+
+
+
+
+./CITATION/citation_dmeo_file.json
+
+
+
+
+
+./CITATION/CORRECTED.csv
+
+
+
+
+
+./CITATION/MAPPING.json
+
+
+
+
+
+./dictionaries
+contains the following files which came from what? Was it created manually? Or was there a program that created these files?
+_copyright.dict
+_court.dict
+_criminalprocedure.dict
+_design.dict
+_entity.dict
+_legalgen.dict
+_patent.dict
+_reservation.dict
+_scjudge.dict
+_trademark.dict
+
+
+
+./LEGAL_TEXT
+contains .txt files like the ff:
+
+"Central Government Act
+
+Section 29 in The Trade Marks Act, 1999
+
+29\. Infringement of registered trade marks.—
+
+(1) A registered trade mark is infringed by a person who, not being a
+registered proprietor or a person using by way of permitted use, uses in the
+course of trade, a mark which is identical with, or deceptively similar to,
+the trade mark in relation to goods or services in respect of which the trade
+mark is registered and in such manner as to render the use of the mark likely
+to be taken as being used as a trade mark."
+
+and 
+
+"Supreme Court of India
+
+Manohar Lal Chopra vs Rai Bahadur Rao Raja Seth Hiralal on 16 November, 1961
+
+Equivalent citations: 1962 AIR 527, 1962 SCR Supl. (1) 450
+
+Author: R Dayal
+
+Bench: Dayal, Raghubar
+
+    
+    
+               PETITIONER:
+    MANOHAR LAL CHOPRA
+    
+    	Vs.
+    
+    RESPONDENT:
+    RAI BAHADUR RAO RAJA SETH HIRALAL
+    
+    DATE OF JUDGMENT:
+    16/11/1961
+    
+    BENCH:
+    DAYAL, RAGHUBAR
+    BENCH:
+    DAYAL, RAGHUBAR
+    WANCHOO, K.N.
+    GUPTA, K.C. DAS
+    SHAH, J.C.
+    
+    CITATION:
+     1962 AIR  527		  1962 SCR  Supl. (1) 450
+     CITATOR INFO :
+     F	    1965 SC1144	 (6)
+     R	    1966 SC1899	 (5)
+     F	    1983 SC1272	 (21)
+     R	    1986 SC 421	 (34)
+    
+    
+    ACT:
+         Civil Procedure-Inherent  powers  of  courts-
+    Temporary   Injunction-Restraining    party   from
+    proceeding with suit in another State-Legality and
+    propriety of-Code  of Civil  Procedure, 1908 (V of
+    1908), ss. 94(c) 151:O. 39 r. 1."
+
+
+
+
+
+./old/jsons
+
+
+
+
+
+./old/pdfs
+
+
+
+
+
+./old/txts
+
+
+
+
+
+./old/judgements.json
+
+
+
+
+
+./updated_data.csv
+
+
+
+
+
+./list_of_acts.txt
+how was this .txt file created? How was each law so to speak used to extract these acts
+from them? What was used in extracting these acts?
+Government Of India Act
+English Education Act
+Bengal Indigo Contracts Act
+.
+.
+.
+Muslim Women (Protection of Rights on Marriage) Act, 2019
+Transgender Persons (Protection of Rights) Act, 2019
+The Direct Tax Vivad se Vishwas Act, 2020
+
+
+
+
+
+./legalkg_stanza_annotations.txt
+how was this .txt file created? How was each law so to speak used to extract these acts
+from them? What was used in extracting these acts? I'm assuming from the name fo the file
+that this was a result of a set of instructions that used the stanza library to label 
+these and annotate these entities
+
+928322	ORG	supreme court of india
+928322	PERSON	ajay agarwal
+928322	ORG	union of india and ors
+.
+.
+.
+1005493	LAW	act
+1005493	LAW	act
+1005493	LAW	act
+

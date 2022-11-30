@@ -1,0 +1,161 @@
+.menuWrapper {
+  position: fixed;
+  width: 50%;
+  @media only screen and (max-width: 768px) {
+    width: 100% !important;
+    background-color: rgba(21, 41, 53, 0.8) !important;
+    right: auto;
+  }
+  height: 100%;
+  right: 0;
+  top: 3.125rem;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.bottomText {
+  color: white;
+  font-family: IBM Plex Sans, serif;
+  font-size: 14px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.name {
+  color: white;
+  font-family: IBM Plex Sans, serif;
+  font-size: 24px;
+}
+
+.label {
+  color: white;
+  font-family: IBM Plex Sans, serif;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+
+.nameContainer {
+  word-wrap: break-word;
+  float: left;
+  width: 100%;
+}
+
+.selectorContainer {
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 30px;
+
+  @media only screen and (max-width: 768px) {
+    margin-right: 8%;
+  }
+
+  .headerLabel {
+    position: absolute;
+    right: 0;
+    top: -12px;
+    font-weight: bold;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+
+  .modelSelectorContainer {
+    height: 20px;
+    float: right;
+  }
+
+  .expandContainer {
+    float: left;
+    height: 20px;
+    margin-right: 5px;
+    display: none;
+    font-weight: normal;
+    font-size: 14px;
+
+    i {
+      margin-right: 10px;
+    }
+
+    span {
+      margin-right: 8px;
+      line-height: 20px;
+
+      &:hover {
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .selected {
+    font-weight: bold;
+  }
+
+  &:hover {
+    transition-duration: 0.6s;
+    background-color: #152935;
+    border-radius: 12px;
+    padding-right: 10px;
+
+    .expandContainer {
+      float: left;
+      height: 20px;
+      margin-right: 10px;
+      padding-left: 10px;
+      display: block;
+    }
+
+    .modelSelectorContainer {
+      height: 20px;
+      float: right;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .headerLabel {
+      position: absolute;
+      right: 0;
+      top: -21px;
+      font-weight: bold;
+      transition-duration: 0.3s;
+    }
+  }
+}
+
+.avatar {
+  position: absolute;
+  right: 10px;
+}
+
+.link {
+  font-family: IBM Plex Sans, serif;
+  font-size: 18px;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+.linkContainer {
+  margin: 30px 10px 10px;
+  color: white;
+}
+
+.buttonTriggerClass {
+  background-color: transparent;
+  color: #3d70b2;
+  font-family: IBM Plex Sans, serif;
+  font-size: 18px;
+  font-weight: normal;
+  margin-left: -18px;
+}
+
+.buttonTriggerClass:hover {
+  background-color: transparent;
+  font-weight: bold;
+}

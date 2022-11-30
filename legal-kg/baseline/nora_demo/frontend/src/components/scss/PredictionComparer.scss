@@ -1,0 +1,90 @@
+.predictionComparerContainer {
+  background-color: rgba(21, 41, 53, 0.4);
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  margin-top: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: scroll;
+  position: relative;
+  flex: 1;
+}
+
+.rankedListItem {
+  width: 100%;
+  color: white;
+  background-color: rgba(21, 41, 53, 0.75);
+  transition: transform 1s;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  height: 70%;
+  overflow: scroll;
+
+  div {
+    width: 100%;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  ul li {
+    padding: 5px;
+    margin-bottom: 5px;
+
+    &:hover {
+      background-color: #1d75b3;
+      border-radius: 10px;
+    }
+  }
+
+  ul li span {
+    float: left;
+    min-width: 30px;
+
+    .nodeID {
+      font-weight: bold;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+}
+
+.rankedListTitle {
+  position: absolute;
+  color: white;
+  right: 15px;
+  top: 15px;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.box {
+  min-width: min-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.predictionContainer {
+  background-color: rgba(21, 41, 53, 0.75);
+  transition: transform 1s;
+  border-radius: 8px;
+  min-width: 115px;
+  margin: 5px 8px;
+  padding: 5px;
+  color: white;
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+}

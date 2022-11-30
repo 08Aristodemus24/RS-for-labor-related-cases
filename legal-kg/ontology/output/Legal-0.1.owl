@@ -1,0 +1,1046 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY wcsnlq "http://irlbxvm128.in.ibm.com/project/WCS/NLQ" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY NLQ "http://irlbxvm128.in.ibm.com/project/WCS/NLQ#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY index "http://irlbxvm128.in.ibm.com/project/WCS/NLQ/index#" >
+    <!ENTITY watsonDT "http://irlbxvm128.in.ibm.com/project/compliance/DataTypes#" >
+]>
+
+
+<rdf:RDF xmlns="http://irlbxvm128.in.ibm.com/project/compliance/RBI#"
+     xml:base="http://irlbxvm128.in.ibm.com/project/compliance/RBI"
+     xmlns:NLQ="&wcsnlq;#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wcsnlq="http://irlbxvm128.in.ibm.com/project/WCS/NLQ"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:index="&wcsnlq;/index#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:watsonDT="http://irlbxvm128.in.ibm.com/project/compliance/DataTypes#">
+    <owl:Ontology rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/RBI">
+        <rdfs:label>RBI - Banking Regulation Ontology</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
+        <rdfs:comment>Based on the FSS ontology.  Simplified for Insights API and WCS flow.</rdfs:comment>
+        <owl:priorVersion rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/RBI1"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#alias -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#alias">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#defaultgroupby -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#defaultgroupby">
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#defaultmeasure -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#defaultmeasure">
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#defaulttime -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#defaulttime">
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#index -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#index"/>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#key -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#key"/>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#unionmap -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#unionmap"/>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ/index#semantictype -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;/index#semantictype"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#length -->
+
+    <owl:AnnotationProperty rdf:about="&xsd;length"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph#inGazette">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Gazette"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Clause#inSection">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Clause"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Section"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Section#inArticle">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Section"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Offence#inAccusation">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Offence"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Accusation"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Penalty#inJurisdiction">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Penalty"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Jurisdiction"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate#inJudgement">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant#inJudgement">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff#inJudgement">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence#inJudgement">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor#inJudgement">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement#inJudgement">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judge"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article#inJudgement">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Proceedings#inJudgement">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Proceedings"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Learned_counsel#underSupervisionOfAdvocate">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Learned_counsel"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Objection#objectionsInCourt">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Objection"/>
+<rdfs:range rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article#amendment">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article#title">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article#category">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article#act_title">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant#gender">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant#name">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant#age">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant"/>
+	<rdfs:range rdf:resource="NUMBER"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate#gender">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate#name">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Court#name">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Court"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Court#location">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Court"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff#gender">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff#name">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff#age">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff"/>
+	<rdfs:range rdf:resource="NUMBER"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Proceedings#proceeding_date">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Proceedings"/>
+	<rdfs:range rdf:resource="&xsd;date"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Compensation#amount">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Compensation"/>
+	<rdfs:range rdf:resource="NUMBER"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Compensation#description">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Compensation"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor#gender">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor#name">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor#age">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor"/>
+	<rdfs:range rdf:resource="NUMBER"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Involved_entity#organization">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Involved_entity"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence#name">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence#source">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence#evidence_description">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Objection#objected_by">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Objection"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Objection#type">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Objection"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Accusation#title">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Accusation"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Testify#testified_by">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Testify"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Testify#description">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Testify"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appeal#description">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appeal"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appeal#appealed_by">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appeal"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Gazette#title">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Gazette"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Gazette#published_date">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Gazette"/>
+	<rdfs:range rdf:resource="&xsd;date"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Section#title">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Section"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Penalty#title">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Penalty"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Penalty#penalty_description">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Penalty"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph#paragraph_text">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph#_begin">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Role#role_name">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Role"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Jurisdiction#title">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Jurisdiction"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Jurisdiction#Jurisdiction_description">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Jurisdiction"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement#decision_date">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+	<rdfs:range rdf:resource="&xsd;date"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement#first_trial_date">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+	<rdfs:range rdf:resource="&xsd;date"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement#last_updated">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement#title">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appellant#gender">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appellant"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appellant#name">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appellant"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appellant#age">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appellant"/>
+	<rdfs:range rdf:resource="NUMBER"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Clause#clause_text">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Clause"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Clause#_begin">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Clause"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Learned_counsel#gender">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Learned_counsel"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Learned_counsel#name">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Learned_counsel"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Offence#description">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Offence"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Offence#title">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Offence"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judge#gender">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judge"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judge#name">
+	<rdfs:domain rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judge"/>
+	<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article">
+	<rdfs:label>Article</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article#amendment"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article#title"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article#category"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article#act_title"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article#inJudgement"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Article"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant">
+	<rdfs:label>Defendant</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Involved_entity"/>
+<rdfs:subClassOf rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant#gender"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant#name"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant#age"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant#inJudgement"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Defendant"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate">
+	<rdfs:label>Advocate</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Involved_entity"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate#gender"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate#name"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate#inJudgement"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Court">
+	<rdfs:label>Court</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Court#name"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Court#location"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff">
+	<rdfs:label>Plaintiff</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff#gender"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff#name"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff#age"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff#inJudgement"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Plaintiff"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Proceedings">
+	<rdfs:label>Proceedings</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Proceedings#proceeding_date"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Proceedings#inJudgement"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Proceedings"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Compensation">
+	<rdfs:label>Compensation</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Compensation#amount"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Compensation#description"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor">
+	<rdfs:label>Prosecutor</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Involved_entity"/>
+<rdfs:subClassOf rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Advocate"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor#gender"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor#name"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor#age"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor#inJudgement"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Involved_entity">
+	<rdfs:label>Involved_entity</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Involved_entity#organization"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence">
+	<rdfs:label>Evidence</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence#name"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence#source"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence#evidence_description"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence#inJudgement"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Evidence"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Objection">
+	<rdfs:label>Objection</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Objection#objected_by"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Objection#type"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Objection#objectionsInCourt"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Objection"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Accusation">
+	<rdfs:label>Accusation</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Accusation#title"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Testify">
+	<rdfs:label>Testify</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Testify#testified_by"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Testify#description"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appeal">
+	<rdfs:label>Appeal</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appeal#description"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appeal#appealed_by"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Gazette">
+	<rdfs:label>Gazette</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Gazette#title"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Gazette#published_date"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Section">
+	<rdfs:label>Section</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Section#title"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Section#inArticle"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Section"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Penalty">
+	<rdfs:label>Penalty</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Penalty#title"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Penalty#penalty_description"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Penalty#inJurisdiction"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Penalty"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph">
+	<rdfs:label>Paragraph</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph#paragraph_text"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph#_begin"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph#inGazette"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Role">
+	<rdfs:label>Role</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Role#role_name"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Jurisdiction">
+	<rdfs:label>Jurisdiction</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Jurisdiction#title"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Jurisdiction#Jurisdiction_description"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement">
+	<rdfs:label>Judgement</rdfs:label>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement#decision_date"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement#first_trial_date"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement#last_updated"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement#title"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement#inJudgement"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judgement"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appellant">
+	<rdfs:label>Appellant</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Involved_entity"/>
+<rdfs:subClassOf rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Prosecutor"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appellant#gender"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appellant#name"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Appellant#age"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Clause">
+	<rdfs:label>Clause</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Clause#clause_text"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Clause#_begin"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Clause#inSection"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Clause"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Learned_counsel">
+	<rdfs:label>Learned_counsel</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Involved_entity"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Learned_counsel#gender"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Learned_counsel#name"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Learned_counsel#underSupervisionOfAdvocate"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Learned_counsel"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Offence">
+	<rdfs:label>Offence</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Paragraph"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Offence#description"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Offence#title"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Offence#inAccusation"/>
+    <owl:hasValue rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Offence"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judge">
+	<rdfs:label>Judge</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Involved_entity"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judge#gender"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+   <owl:onProperty rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/Legal-0.1/Judge#name"/>
+   <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+
+</rdf:RDF>

@@ -1,0 +1,1 @@
+"this is the folder where its files are outputs of some specific file in the legal-kg directory" 

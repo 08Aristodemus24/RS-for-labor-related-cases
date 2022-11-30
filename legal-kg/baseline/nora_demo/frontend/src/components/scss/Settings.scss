@@ -1,0 +1,210 @@
+.dataModalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .dataModalContentContainer {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    background-color: gainsboro;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    @media only screen and (max-width: 768px) {
+      width: 95% !important;
+    }
+
+    .headerContainer {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .titleContainer {
+        padding-top: 20px;
+        padding-left: 25px;
+
+        h2 {
+          font-family: IBM Plex Sans, serif;
+          font-size: 30px;
+          text-align: left;
+          margin: 0;
+        }
+
+        span {
+          font-family: IBM Plex Sans, serif;
+          font-size: 18px;
+          font-style: italic;
+          text-align: left;
+          margin: 10px 0 0;
+        }
+      }
+    }
+
+    .buttonContainer {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        margin-bottom: 15px;
+      }
+
+      button:last-of-type {
+        margin-right: 15px;
+        margin-left: 5px;
+      }
+
+      .button {
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        background-color: #152935;
+        color: white;
+        height: 45px;
+        width: 150px;
+        font-family: IBM Plex Sans, serif;
+        font-size: 14px;
+      }
+
+      .button:hover {
+        background-color: #2d5a6e; /* Green */
+        cursor: pointer;
+      }
+    }
+
+    .dataModalContent {
+      width: 100%;
+      height: 100%;
+      color: black;
+      margin-bottom: 10px;
+      margin-top: 5px;
+
+      overflow-y: scroll;
+
+      button {
+        margin-top: 35px;
+      }
+
+      & > div {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+
+      .switchContainer {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+
+        span {
+          padding-left: 10px;
+        }
+
+        &.indented {
+          margin-left: 35px;
+          zoom: 0.75;
+          margin-bottom: 15px;
+
+          .inputValue {
+            width: 80px;
+          }
+        }
+
+        &.larger {
+          .inputValue {
+            width: 90px;
+          }
+        }
+      }
+
+      .inputValue {
+        background-color: #152935;
+        width: 49px;
+        height: 34px;
+        border: 0px;
+        border-radius: 34px;
+        color: white;
+
+        font-family: IBM Plex Sans, serif;
+        font-size: 14px;
+        text-align: left;
+        padding-left: 10px;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #152935;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      input:checked + .slider {
+        background-color: #1d75b3;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #1d75b3;
+      }
+
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+
+      .slider.round {
+        border-radius: 34px;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+p {
+  select {
+    background-color: transparent;
+    min-width: 125px;
+    float: right;
+    font-weight: bold;
+  }
+}
