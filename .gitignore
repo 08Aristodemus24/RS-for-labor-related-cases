@@ -14,3 +14,7 @@
 /legal-kg/link-prediction/
 
 /legal-kg/ner_ie/text_from_html_1152.csv
+
+/commit-data.json
+/parsed-commit-data.txt
+/test.js
