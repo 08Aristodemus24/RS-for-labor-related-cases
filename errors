@@ -1,0 +1,30 @@
+install neuralcoref on python 3.7 env:
+    problem: spacy ValueError: spacy.strings.StringStore size changed, may indicate binary incompatibility. Expected 80 from C header, got 64 from PyObject is raised
+    solutions: 
+        - downgrade spacy to 2.1.0
+        - use pip install neuralcoref --no-binary neuralcoref
+            problem: setup.py did not run successfully
+            solutions:
+
+
+install neuralcoref on python 3.8 env:
+    problem: setup.py did not run successfully
+    solutions:
+
+
+install neuralcoref on python 3.10 env:
+
+
+install neuralcoref from source in 3.8 env:
+    - cd neuralcoref && \
+    - pip install -r requirements.txt && \
+    - pip install -e . &&  \
+    - pip install spacy==2.3.2 &&  \
+    - python -m spacy download en
+
+
+install spacy 2.3.2 and then install neuralcoref from source:
+
+
+protobuf error
+srsly incompatibility error when downgrading spacy 2.3.5 to 2.1.0 to fit neuralcoref 4.0

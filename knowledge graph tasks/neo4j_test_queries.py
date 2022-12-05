@@ -14,8 +14,8 @@ class App:
     def create_friendship(self, person1_name, person2_name):
         with self.driver.session(database="neo4j") as session:
             # Write transactions allow the driver to handle retries and transient errors
-            result = session.execute_write(
-                self._create_and_return_friendship, person1_name, person2_name)
+            # pass also the callback along with the other arguments
+            result = session.execute_write(self._create_and_return_friendship, person1_name, person2_name)
             for row in result:
                 print("Created friendship between: {p1}, {p2}".format(p1=row['p1'], p2=row['p2']))
 
@@ -41,6 +41,7 @@ class App:
 
     def find_person(self, person_name):
         with self.driver.session(database="neo4j") as session:
+            # pass the callback along with the other arguments
             result = session.execute_read(self._find_and_return_person, person_name)
             for row in result:
                 print("Found person: {row}".format(row=row))
@@ -78,6 +79,6 @@ if __name__ == "__main__":
     # "<Password for Neo4j Aura instance>"
     password = "Cq-Of1FHfShywvyaq0RpAJaOmIHA6ZVPW9yB6UxxXs8"
     app = App(uri, user, password)
-    app.create_friendship("Alice", "David")
-    app.find_person("Alice")
+    app.create_friendship("Michael", "Luke")
+    app.find_person("Luke")
     app.close()

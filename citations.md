@@ -18,7 +18,7 @@
 # resources used by research:
 1. http://case-similarity-demo.mybluemix.net/
 2. http://legal-knowledge-graph.mybluemix.net/
-3. import Legal-0.1.owl to WebVOWL
+3. import Legal-0.1.owl to WebVOWL or https://us-south.git.cloud.ibm.com/anu-kg/legal-kg/-/blob/master/ontology/output/Legal-0.1.owl
 
 # * Constructing a Legal Knowledge Graph from Indian Legal Domain Corpus: https://github.com/semintelligence/Text2KG.git
 # resources used by research:
