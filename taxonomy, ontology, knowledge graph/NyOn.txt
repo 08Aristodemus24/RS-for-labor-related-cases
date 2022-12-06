@@ -1,0 +1,88 @@
+concepts:
+Courts: locatedAt(STRING)
+Government: governmentName(STRING)
+Individual: individualName(STRING)
+Organization: organizationName(STRING)
+State: stateName(STRING)
+Case: hasCaseNumber(LITERAL), hasCaseName(STRING)
+Court Decision: hasCourtDecision(DATETIME)
+Judgement: hasJudgement(STRING)
+Order: hasOrder(STRING)
+Thing: topDataProperty(LITERAL)
+relations:
+isa:Criminal_Courts:Chief_Meterpolitan_Court
+isa:Criminal_Courts:Metropolitan_Magistrate_Courts
+isa:Criminal_Courts:Sessions_Court
+isa:Criminal_Courts:Judicial_Magistrate_Court_(First_Class)
+isa:Criminal_Courts:Judicial_Magistrate_Court_(Second_Class)
+isa:Civil_Courts:Sub_Court
+isa:Civil_Courts:City_Civil_Courts
+isa:Civil_Courts:District_Court
+isa:Civil_Courts:Courts_of_Smaller_Causes
+isa:Civil_Courts:_Munsif_Court
+isa:Civil_Courts:Principal_Junior_Civil_Court
+isa:Case_Type:Criminal_Courts
+isa:Case_Type:Civil
+isa:Case_Type:Civil_Courts
+isa:Case_Type:Criminal
+isa:Jurisdiction:Writ_Jurisdiction
+isa:Jurisdiction:Original_Jurisdiction
+isa:Jurisdiction:Advisory_Jurisdiction
+isa:Jurisdiction:Review_Jurisdiction
+isa:Jurisdiction:Appellant_Jurisdiction
+hasReviewJurisdiction:Review_Jurisdiction:Apex_Court
+hasAdvisoryJurisdiction:Advisory_Jurisdiction:Apex_Court
+isa:Courts:Apex_Court
+isa:Courts:High_Court
+isa:Courts:Metropolitan_Court
+isa:Courts:Tribunals
+isa:Courts:District_Courts
+isa:Non-Legal_Participants:Appellant
+isa:Non-Legal_Participants:Plaintiff
+isa:Non-Legal_Participants:Petitioner
+isa:Non-Legal_Participants:Witness
+isa:Non-Legal_Participants:Rspondent
+isa:Non-Legal_Participants:Accused
+hasNonLegalParticipants:Non-Legal_Participants:Case
+hasParticipantType:Non-Legal_Participants:Participants
+isa:Participants:State
+isa:Participants:Government
+isa:Participants:Group
+hasIndividuals:Individual:Group
+isa:Participants:Individual
+isa:Participants:Organization
+isa:Location:State
+isa:Location:Country
+isa:Location:Taluka
+isa:Location:District
+isa:Location:Place
+hasEvidenceLocation:Place:Evidence
+hasLocation:Location:Courts
+hasCourts:Courts:Case
+hasAuthor:Author:Case
+caseBelongsToType:Case_Type:Case
+hasPrecedentCase:Precedent_Case:Case
+isA:Case:Precendent_Case
+hasCourtDecision:Court_Decision:Case
+isa:Court_Decision:Judgement
+isa:Court_Decision:Order
+hasLegalParticipants:Legal_Participants:Case
+isa:Legal_Participants:Judge
+isa:Legal_Participants:Investigator
+isa:Legal_Participants:Solicitor
+documentType:Court_Judgements:Case
+isa:Documents:Court_Judgements
+isa:Documents:Appeal
+isa:Documents:FIR
+isa:Documents:Petition
+isa:Documents:Others
+hasActs:Acts:Case
+hasBench:Bench:Case
+isa:Bench:Special_Bench
+isa:Bench:Tribunal_Bench
+isa:Bench:Division_Bench
+isa:Bench:Larger_Bench
+isa:Bench:Single_Judge
+hasEvidences:Evidence:Case
+hasWritJurisdiction:Thing:Thing
+topObjectProperty:Thing:Thing

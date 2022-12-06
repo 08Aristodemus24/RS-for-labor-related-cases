@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY wcsnlq "http://irlbxvm128.in.ibm.com/project/WCS/NLQ" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY NLQ "http://irlbxvm128.in.ibm.com/project/WCS/NLQ#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY index "http://irlbxvm128.in.ibm.com/project/WCS/NLQ/index#" >
+    <!ENTITY watsonDT "http://irlbxvm128.in.ibm.com/project/compliance/DataTypes#" >
+]>
+
+
+<rdf:RDF xmlns="http://irlbxvm128.in.ibm.com/project/compliance/RBI#"
+     xml:base="http://irlbxvm128.in.ibm.com/project/compliance/RBI"
+     xmlns:NLQ="&wcsnlq;#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wcsnlq="http://irlbxvm128.in.ibm.com/project/WCS/NLQ"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:index="&wcsnlq;/index#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:watsonDT="http://irlbxvm128.in.ibm.com/project/compliance/DataTypes#">
+    <owl:Ontology rdf:about="http://irlbxvm128.in.ibm.com/project/compliance/RBI">
+        <rdfs:label>RBI - Banking Regulation Ontology</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
+        <rdfs:comment>Based on the FSS ontology.  Simplified for Insights API and WCS flow.</rdfs:comment>
+        <owl:priorVersion rdf:resource="http://irlbxvm128.in.ibm.com/project/compliance/RBI1"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#alias -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#alias">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#defaultgroupby -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#defaultgroupby">
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#defaultmeasure -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#defaultmeasure">
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#defaulttime -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#defaulttime">
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#index -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#index"/>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#key -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#key"/>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ#unionmap -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;#unionmap"/>
+    
+
+
+    <!-- http://irlbxvm128.in.ibm.com/project/WCS/NLQ/index#semantictype -->
+
+    <owl:AnnotationProperty rdf:about="&wcsnlq;/index#semantictype"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#length -->
+
+    <owl:AnnotationProperty rdf:about="&xsd;length"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
