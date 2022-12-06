@@ -1,0 +1,80 @@
+concepts:
+Judgement: title(STRING), last_updated(STRING),  first_trial_date(DATE), decision_date(DATE)
+Gazette: title(STRING), published_date(DATE)
+Proceedings: proceeding_date(DATE)
+Article: title(STRING), category(STRING), act_title(STRING),amendment(STRING)
+Section: title(STRING)
+Clause: _begin(STRING), clause_text(STRING)
+Paragraph: _begin(STRING), paragraph_text(STRING)
+Court: name(STRING), location(STRING)
+Defendant: name(STRING), gender(STRING), age(NUMBER)
+Prosecutor: name(STRING), gender(STRING), age(NUMBER)
+Appeal: appealed_by(STRING), description(STRING)
+Appellant: name(STRING), gender(STRING), age(NUMBER)
+Plaintiff: name(STRING), gender(STRING), age(NUMBER)
+Involved_entity: organization(STRING)
+Advocate: name(STRING), gender(STRING)
+Learned_counsel: name(STRING), gender(STRING)
+Role: role_name(STRING)
+Judge: name(STRING), gender(STRING)
+Offence: title(STRING), description(STRING)
+Accusation:title(STRING)
+Objection: objected_by(STRING), type(STRING)
+Testify: description(STRING), testified_by(STRING)
+Jurisdiction: title(STRING), Jurisdiction_description(STRING)
+Penalty: title(STRING), penalty_description(STRING)
+Compensation: amount(NUMBER), description(STRING)
+Evidence: name(STRING), source(STRING), evidence_description(STRING)
+relation: 
+isa:Involved_entity:Advocate
+isa:Involved_entity:Judge
+isa:Involved_entity:Defendant
+isa:Involved_entity:Prosecutor
+isa:Involved_entity:Learned_counsel
+isa:Involved_entity:Appellant
+isa:Prosecutor:Appellant
+isa:Advocate:Defendant
+isa:Advocate:Prosecutor
+isa:Paragraph:Clause
+isa:Paragraph:Offence
+partof:Jurisdiction:Penalty
+partof:Jurisdiction:Compensation
+partof:Judgement:Paragraph
+partof:Judgement:Proceedings
+partof:Article:Section
+partof:Section:Clause
+hasa:Role:Advocate
+hasa:Role:Learned_counsel
+hasa:Gazette:Judgement
+isbasedon:Jurisdiction:Evidence
+isbasedon:Penalty:Offence
+isbasedon:Evidence:Testify
+responsiblefor:Jurisdiction:Judge
+responsiblefor:Objection:Advocate
+responsiblefor:Accusation:Advocate
+responsiblefor:Judgement:Court
+responsiblefor:Offence:Involved_entity
+responsiblefor:Testify:Plaintiff
+responsiblefor:Evidence:Plaintiff
+responsiblefor:Evidence:Learned_counsel
+responsiblefor:Appeal:Advocate
+citing:Judgement:Clause
+citedby:Clause:Judgement
+accusedof:Offence:Defendant
+accusedof:Penalty:Prosecutor
+accusedof:Penalty:Defendant
+functional:Paragraph:Gazette:N:1:inGazette
+functional:Clause:Section:N:1:inSection
+functional:Section:Article:N:1:inArticle
+functional:Offence:Accusation:N:1:inAccusation
+functional:Penalty:Jurisdiction:N:1:inJurisdiction
+functional:Advocate:Judgement:N:1:inJudgement
+functional:Defendant:Judgement:N:1:inJudgement
+functional:Plaintiff:Judgement:N:1:inJudgement
+functional:Evidence:Judgement:N:1:inJudgement
+functional:Prosecutor:Judgement:N:1:inJudgement
+functional:Judge:Judgement:1:1:inJudgement
+functional:Article:Judgement:N:1:inJudgement
+functional:Proceedings:Judgement:N:1:inJudgement
+functional:Learned_counsel:Advocate:N:1:underSupervisionOfAdvocate
+functional:Objection:Advocate:N:1:objectionsInCourt
