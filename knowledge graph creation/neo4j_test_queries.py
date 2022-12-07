@@ -56,22 +56,33 @@ class App:
         result = tx.run(query, person_name=person_name)
         return [row["name"] for row in result]
 
-
-    def create_judgement(self, judgement_name, judgement_title, last_updated, first_trial_date, decision_date):
-        with self.driver.session(database="ne4j") as session:
-            result = session.execute_read(self._create_judgement, judgement_name, judgement_title, last_updated, first)
+    def create_judgement(self, person1, person2):
+        with self.driver.session(database="neo4j") as session:
+            # Write transactions allow the driver to handle retries and transient errors
+            # pass also the static method callback along with the other arguments
+            result = session.execute_write(self._create_judgement, person1, person2)
             for row in result:
-                print("Created judgement: {judgement_name}".format(judgement_name=row['judgement_name']))
+                print("Created judgement: {j1}, {j2}".format(j1=row['j1'], j2=row['j2']))
 
     @staticmethod
-    def _create_judgement(tx, judgement_name, judgement_title, last_updated, first_trial_date, decision_date):
-        query = (
-            "CREATE (judgement:Judgement { name: $judgement_name, title: $judgement_title, last_updated: $last_updated, first_trial_date: $first_trial_date, decision_date: $decision_date}) "
-            "RETURN judgement"
-        )
+    def _create_judgement(tx, person1, person2):
+        # To learn more about the Cypher syntax, see https://neo4j.com/docs/cypher-manual/current/
+        # The Reference Card is also a good resource for keywords https://neo4j.com/docs/cypher-refcard/current/
 
-        result = tx.run(query, judgement_name=judgement_name, )
-        return [row["judgement_name"] for row in result]
+        query = (
+            "CREATE (j1:Judgement { name: $person1, date: $date1 }) "
+            "CREATE (j2:Judgement { name: $person2, date: $date2 }) "
+            "RETURN j1, j2"
+        )
+        result = tx.run(query, person1=person1['judgement'], date1=person1['date'], person2=person2['judgement'], date2=person1['date'])
+        try:
+            return [{"j1": row["j1"]["name"], "j2": row["j2"]["name"]}
+                    for row in result]
+        # Capture any errors along with the query and data for traceability
+        except ServiceUnavailable as exception:
+            logging.error("{query} raised an error: \n {exception}".format(
+                query=query, exception=exception))
+            raise
 
 if __name__ == "__main__":
     # Aura queries use an encrypted connection using the "neo4j+s" URI scheme
@@ -95,6 +106,10 @@ if __name__ == "__main__":
     # "<Password for Neo4j Aura instance>"
     password = "Cq-Of1FHfShywvyaq0RpAJaOmIHA6ZVPW9yB6UxxXs8"
     app = App(uri, user, password)
-    app.create_friendship("Michael", "Luke")
-    app.find_person("Luke")
+    # app.create_friendship("Michael", "Luke")
+    # app.find_person("Luke")
+    app.create_judgement(
+        {"judgement": "judgement 1", "date": "january 1 2022"},
+        {"judgement": "judgement 2", "date": "january 2 2022"},
+    )
     app.close()
