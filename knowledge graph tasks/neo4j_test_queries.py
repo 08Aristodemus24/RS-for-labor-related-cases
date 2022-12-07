@@ -14,7 +14,7 @@ class App:
     def create_friendship(self, person1_name, person2_name):
         with self.driver.session(database="neo4j") as session:
             # Write transactions allow the driver to handle retries and transient errors
-            # pass also the callback along with the other arguments
+            # pass also the static method callback along with the other arguments
             result = session.execute_write(self._create_and_return_friendship, person1_name, person2_name)
             for row in result:
                 print("Created friendship between: {p1}, {p2}".format(p1=row['p1'], p2=row['p2']))
@@ -41,7 +41,7 @@ class App:
 
     def find_person(self, person_name):
         with self.driver.session(database="neo4j") as session:
-            # pass the callback along with the other arguments
+            # pass the static method callback along with the other arguments
             result = session.execute_read(self._find_and_return_person, person_name)
             for row in result:
                 print("Found person: {row}".format(row=row))
@@ -56,6 +56,22 @@ class App:
         result = tx.run(query, person_name=person_name)
         return [row["name"] for row in result]
 
+
+    def create_judgement(self, judgement_name, judgement_title, last_updated, first_trial_date, decision_date):
+        with self.driver.session(database="ne4j") as session:
+            result = session.execute_read(self._create_judgement, judgement_name, judgement_title, last_updated, first)
+            for row in result:
+                print("Created judgement: {judgement_name}".format(judgement_name=row['judgement_name']))
+
+    @staticmethod
+    def _create_judgement(tx, judgement_name, judgement_title, last_updated, first_trial_date, decision_date):
+        query = (
+            "CREATE (judgement:Judgement { name: $judgement_name, title: $judgement_title, last_updated: $last_updated, first_trial_date: $first_trial_date, decision_date: $decision_date}) "
+            "RETURN judgement"
+        )
+
+        result = tx.run(query, judgement_name=judgement_name, )
+        return [row["judgement_name"] for row in result]
 
 if __name__ == "__main__":
     # Aura queries use an encrypted connection using the "neo4j+s" URI scheme
