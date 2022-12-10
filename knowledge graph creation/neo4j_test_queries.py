@@ -84,6 +84,12 @@ class App:
                 query=query, exception=exception))
             raise
 
+    def create_article(self, article):
+        pass
+
+    def _create_article(tx, article):
+        pass
+
 if __name__ == "__main__":
     # Aura queries use an encrypted connection using the "neo4j+s" URI scheme
     
