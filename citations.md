@@ -24,3 +24,10 @@
 # resources used by research:
 1. NyOnLegalOntology - https://w3id.org/def/NyOnLegalOntology#
 2. https://nandana.github.io/LegalOntology/OnToology/NyOn.owl/documentation/webvowl/index.html#
+
+# * Multi-Task Feature Learning for Knowledge Graph Enhanced Recommendation: https://github.com/hwwang55/MKR.git    
+1. 
+
+
+# * DFM-GCN: A Multi-Task Learning Recommendation Based on a Deep Graph Neural Network: 
+1. 
