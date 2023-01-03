@@ -1,0 +1,16 @@
+ Volume in drive C has no label.
+ Volume Serial Number is E266-166A
+
+ Directory of C:\Users\Cueva Family\Desktop\labor_related_RS\MKR
+
+03/01/2023  07:10 pm    <DIR>          .
+03/01/2023  07:10 pm    <DIR>          ..
+03/01/2023  02:24 pm             1,495 .gitignore
+03/01/2023  02:24 pm    <DIR>          data
+03/01/2023  02:24 pm           115,542 framework.png
+03/01/2023  02:24 pm             1,090 LICENSE
+03/01/2023  07:10 pm                 0 print.txt
+03/01/2023  02:24 pm             2,266 README.md
+03/01/2023  02:24 pm    <DIR>          src
+               5 File(s)        120,393 bytes
+               4 Dir(s)  71,434,801,152 bytes free
