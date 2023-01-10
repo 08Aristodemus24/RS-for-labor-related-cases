@@ -1,4 +1,3 @@
-import pandas as pd
 import os
 
 from lexnlp.extract.en.acts import get_act_list
@@ -20,6 +19,12 @@ from lexnlp.extract.en.percents import get_percents
 from lexnlp.extract.en.regulations import get_regulations
 from lexnlp.extract.en.trademarks import get_trademarks
 
+import nltk
+import pandas as pd
+
+# lexnlp version is still in 1.8.0 so upgrade to latest
+# this is why it gives an attirbute error when accessing the
+# self.load_entities_from_files() method of Dictionary Entry
 
 # from lexnlp.extract.common.base_path import lexnlp_test_path
 # from lexnlp.extract.en.dict_entities import prepare_alias_banlist_dict, AliasBanRecord, DictionaryEntry, DictionaryEntryAlias
@@ -33,12 +38,10 @@ from lexnlp.extract.en.trademarks import get_trademarks
 
 # _CONFIG = list(load_entities_dict())
 
-
-
-
+nltk.download('averaged_perceptron_tagger')
 
 pint_labor_conventions = pd.read_csv('../raw data cleaning/Proposed International Labor Conventions.csv', index_col=0)
-# print(pint_labor_conventions['page_text_content'][0])
+corpus = pint_labor_conventions['page_text_content'][0]
 
 callbacks = [
     get_act_list,
@@ -50,20 +53,27 @@ callbacks = [
 
     # get_courts,
 
-    # get_dates,
-    # get_definitions,
-    # get_distances,
-    # get_durations,
+    get_dates,
+    get_definitions,
+    get_distances,
+    get_durations,
 
-    # get_geoentities,
+    get_geoentities,
 
-    # get_percents,
-    # get_regulations,
-    # get_trademarks
+    get_percents,
+    get_regulations,
+    get_trademarks
 ]
 
 for callback in callbacks:
-    entities = callback(pint_labor_conventions['page_text_content'][0])
-    print(*entities, sep='\n')
+    # prints the function name
+    print(callback.__name__)
+
+    # use each function by passing corpus or body of text
+    entities = callback(corpus, geo_config_list=_CONFIG) if callback.__name__ == "get_geoentities" else callback(corpus)
+
+    # unzip the generator object
+    print(*entities, sep='\n', end='\n')
+    
     
 
